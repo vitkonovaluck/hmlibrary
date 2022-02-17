@@ -10,11 +10,12 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $news - News::get();
+        return view('news',compact('news'));
     }
 
     /**
@@ -24,7 +25,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('form');
     }
 
     /**
@@ -35,7 +36,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -46,7 +47,7 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
+        return view('show');
     }
 
     /**
@@ -57,7 +58,8 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        return view('show', compact('news'));
+
     }
 
     /**
