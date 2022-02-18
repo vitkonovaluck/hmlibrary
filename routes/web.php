@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\Admin\{ANewsController, DashboardController};
+use App\Http\Controllers\Admin\{ANewsController, DashboardController,AStaticController,AMenuController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin', 'namespace' => '\App\Http\Controllers\Admin','middelware'=>['auth']], function (){
     Route::get('/',[DashboardController::class, 'dashboard'])->name('admin.index');
     Route::resource('/news',  ANewsController::class, ['as'=>'admin']);
+    Route::resource('/static',  AStaticController::class, ['as'=>'admin']);
     Route::resource('/menu',  AMenuController::class, ['as'=>'admin']);
-
 });
 
 //Route::redirect('/','news');

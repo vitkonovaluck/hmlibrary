@@ -1,5 +1,5 @@
 @extends('admin.layout');
 
 @section('content')
-    <h1>Admin Pages</h1>
+    <h1>Головна сторінка</h1>
 @endsection

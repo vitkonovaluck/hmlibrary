@@ -13,7 +13,7 @@ return new class extends Migration
      */
         public function up()
     {
-        Schema::create('staticses', function (Blueprint $table) {
+        Schema::create('statics', function (Blueprint $table) {
             $table->id();
             $table->string('page_name');
             $table->text('page_title');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('staticses');
     }
 };
