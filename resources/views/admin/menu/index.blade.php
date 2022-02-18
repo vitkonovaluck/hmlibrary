@@ -11,7 +11,7 @@
 
         <hr>
 
-        <a href="" class="btn btn-primary pull-rigth"><i class="fafa-puls-square-o"></i> Додати меню </a>
+        <a href="{{route('admin.menu.create')}}" class="btn btn-primary pull-rigth"><i class="fafa-puls-square-o"></i> Додати меню </a>
         <table class="table table-striped">
             <thead>
             <th>#</th>

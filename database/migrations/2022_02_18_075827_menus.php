@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('menu_name');
             $table->integer('menu_parrent');
             $table->string('menu_slug');
+            $table->tinyInteger('published')->nullable();
             $table->timestamps();
         });
     }

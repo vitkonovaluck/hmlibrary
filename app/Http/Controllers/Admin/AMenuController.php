@@ -27,7 +27,11 @@ class AMenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.menu.create',[
+            'menu'      => [],
+            'menuses'   => Menus::with('children')->where('menu_parrent','0')->get(),
+            'delimiter' =>[]
+        ]);
     }
 
     /**
@@ -38,7 +42,8 @@ class AMenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Menus::create($request->all());
+        return redirect()->route('admin.menu.index');
     }
 
     /**
