@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\{ANewsController, DashboardController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 //
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middelware'=>['auth']], function (){
+Route::group(['prefix' => 'admin', 'namespace' => '\App\Http\Controllers\Admin','middelware'=>['auth']], function (){
     Route::get('/',[DashboardController::class, 'dashboard'])->name('admin.index');
+    Route::resource('/news',  ANewsController::class, ['as'=>'admin']);
 });
 
 //Route::redirect('/','news');
