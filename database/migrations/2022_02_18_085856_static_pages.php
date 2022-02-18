@@ -11,16 +11,16 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+        public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('staticses', function (Blueprint $table) {
             $table->id();
-            $table->string('news_title');
-            $table->string('news_author');
-            $table->string('news_slug');
-            $table->text('news_text');
-            $table->string('news_frame');
-            $table->string('news_frame1');
+            $table->string('page_name');
+            $table->text('page_title');
+            $table->string('page_slug');
+            $table->text('page_text');
+            $table->string('page_frame');
+            $table->string('page_frame1');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('news');
+        //
     }
 };

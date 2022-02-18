@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('menuses', function (Blueprint $table) {
             $table->id();
-            $table->string('news_title');
-            $table->string('news_author');
-            $table->string('news_slug');
-            $table->text('news_text');
-            $table->string('news_frame');
-            $table->string('news_frame1');
+            $table->string('menu_name');
+            $table->integer('menu_parrent');
+            $table->string('menu_slug');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('news');
+        Schema::drop('menuses');
     }
 };
