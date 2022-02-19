@@ -10,7 +10,7 @@
 </select>
 
 <label for="">Назва</label>
-<input type="text" class="form-control" name="title" placeholder="Назва меню" value="" required>
+<input type="text" class="form-control" name="title" placeholder="Назва меню" value="{{}}" required>
 
 <label for="">Ссилка</label>
 <input class="form-control" type="text" name="slug" placeholder="Автоматична генерація" value="" readonly="">
