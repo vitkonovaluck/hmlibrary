@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('menuses', function (Blueprint $table) {
             $table->id();
-            $table->string('menu_name');
-            $table->integer('menu_parrent');
+            $table->string('menu_name')->default('Пункт меню');
+            $table->integer('menu_parrent')->default(0);
             $table->string('menu_slug');
             $table->tinyInteger('published')->nullable();
             $table->timestamps();

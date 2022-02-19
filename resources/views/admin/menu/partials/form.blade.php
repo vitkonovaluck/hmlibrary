@@ -10,15 +10,23 @@
 </select>
 
 <label for="">Назва</label>
-<input type="text" class="form-control" name="title" placeholder="Назва меню" value="{{}}" required>
+@if (isset($menu->id))
+    <input type="text" class="form-control" name="menu_name" placeholder="Назва меню" value="{{$menu->id}}" required>
+@else
+    <input type="text" class="form-control" name="menu_name" placeholder="Назва меню" value="" required>
+@endif
 
 <label for="">Ссилка</label>
-<input class="form-control" type="text" name="slug" placeholder="Автоматична генерація" value="" readonly="">
+@if (isset($menu->id))
+    <input class="form-control" type="text" name="menu_slug" placeholder="Автоматична генерація" value="" readonly="">
+@else
+    <input class="form-control" type="text" name="menu_slug" placeholder="Автоматична генерація" value="" readonly="">
+@endif
 
 <label for="">Початкова категорія</label>
 <select class="form-control" name="parent_id">
     <option value="0">-- головна категорія --</option>
-    @include('admin.menu.partials.menus', ['menu' => $menu])
+    @include("admin.menu.partials.menus", ['menu' => $menu])
 </select>
 
 <hr />

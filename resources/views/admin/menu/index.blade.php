@@ -26,7 +26,7 @@
                     <td>{{$mn->menu_name}}</td>
                     <td>{{$mn->menu_parrent}}</td>
                     <td>
-                        <a href=""><i class="fafa-edit"></i></a>
+                        <a href="#"><i class="fa fa-edit">1111</i></a>
                     </td>
                 </tr>
             @empty
