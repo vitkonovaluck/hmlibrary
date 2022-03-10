@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\Admin\{ANewsController, DashboardController,AStaticController,AMenuController};
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\Admin\AIndexController;
+use App\Http\Controllers\Admin\ANewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,21 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group. Now create someting great!
 |
 */
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-//
-Route::group(['prefix' => 'admin', 'namespace' => '\App\Http\Controllers\Admin','middelware'=>['auth']], function (){
-    Route::get('/',[DashboardController::class, 'dashboard'])->name('admin.index');
-    Route::resource('/news',  ANewsController::class, ['as'=>'admin']);
-    Route::resource('/static',  AStaticController::class, ['as'=>'admin']);
-    Route::resource('/menu',  AMenuController::class, ['as'=>'admin']);
+////, 'middleware' => ['auth']
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::get('/',[AIndexController::class,'index'])->name('admin.index');
+    Route::get('/news',[ANewsController::class,'index'])->name('admin.news.index');
+    Route::get('/news/create',[ANewsController::class,'create'])->name('admin.news.create');
+    Route::get('/news/edit',[ANewsController::class,'edit'])->name('admin.news.edit');
+    Route::get('/news/update',[ANewsController::class,'update'])->name('admin.news.update');
 });
 
-//Route::redirect('/','news');
 
-Route::resource('news',NewsController::class);
+
+Route::get('/', [IndexController::class, 'index']);
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
