@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Admin\AIndexController;
 use App\Http\Controllers\Admin\ANewsController;
+use App\Http\Controllers\Admin\AMenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/',[AIndexController::class,'index'])->name('admin.index');
     Route::get('/news',[ANewsController::class,'index'])->name('admin.news.index');
     Route::get('/news/create',[ANewsController::class,'create'])->name('admin.news.create');
+    Route::get('/news/edit/{type}',[ANewsController::class,'edit'])->name('admin.news.edit');
     Route::get('/news/edit',[ANewsController::class,'edit'])->name('admin.news.edit');
-    Route::get('/news/update',[ANewsController::class,'update'])->name('admin.news.update');
+    Route::get('/news/store',[ANewsController::class,'store'])->name('admin.news.store');
+    Route::post('/news/store',[ANewsController::class,'store'])->name('admin.news.store');
+    Route::post('/news/update',[ANewsController::class,'update'])->name('admin.news.update');
+    Route::get('/news/search',[ANewsController::class,'search'])->name('admin.news.search');
+
+    Route::get('/menu',[AMenuController::class,'index'])->name('admin.menu.index');
+    Route::get('/menu/create',[AMenuController::class,'create'])->name('admin.menu.create');
+    Route::get('/menu/search',[AMenuController::class,'search'])->name('admin.menu.search');
+    Route::get('/menu/edit',[AMenuController::class,'edit'])->name('admin.menu.edit');
+    Route::get('/menu/store',[AMenuController::class,'store'])->name('admin.menu.store');
+
 });
 
 

@@ -13,13 +13,13 @@
     <tbody>
     @forelse($news as $new)
     <tr>
-        <th scope="row">1</th>
+        <th scope="row">{{$loop->index+1}}</th>
         <td>{{$new->news_title}}</td>
         <td>{{$new->news_author}}</td>
-        <td>{{ humanize_date($new->created_at, 'd/m/Y H:i:s') }}</td>
+        <td>{{$new->posted_at}}</td>
         <td></td>
         <td>
-            <a href="{{route('admin.news.edit', $new->id, $new) }}" alt="Редагування"><i class="fas fa-edit"></i></a>
+            <a href="{{route('admin.news.edit',$new) }}" alt="Редагування"><i class="fas fa-edit"></i></a>
             <a href="" alt="Копіювання"><i class="fas fa-copy"></i></a>
             <a href="" alt="Видалення"><i class="fas fa-trash"></i></a>
 
