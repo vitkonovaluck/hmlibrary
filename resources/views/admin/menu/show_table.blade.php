@@ -1,7 +1,7 @@
 @foreach($menu as $men)
     <tr>
         <th scope="row">{{$loop->index+1}}</th>
-        <td>{{$delimiter}} / <b> {{$men->menu_name}}</b></td>
+        <td>{{$delimiter}} / <b><font color="blue"> {{$men->menu_name}}</font></b></td>
         <td>@if ($men->published == 0) Не опубліковано @else Опубліковано @endif</td>
         <td>{{$men->menu_page}}</td>
         <td>{{$men->menu_link}}</td>

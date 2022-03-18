@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\StaticPage;
 
 class StaticController extends Controller
 {
@@ -14,6 +15,7 @@ class StaticController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -43,9 +45,15 @@ class StaticController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        if(isset($request->id)) {
+            return view('static.show', [
+                'statics' => StaticPage::where('id', $request->id)->get()
+            ]);
+        }else{
+            return view('index');
+        }
     }
 
     /**

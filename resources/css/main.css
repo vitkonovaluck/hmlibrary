@@ -154,9 +154,9 @@ h6 {
 
 ul,
 ol {
-  margin: 0px;
-  padding: 0px;
-  list-style-type: none;
+  /*margin: 0px;
+  padding: 0px;*/
+  list-style-type:square;
 }
 
 .mt-5 {
@@ -4909,4 +4909,138 @@ top: 2px;
   .footer .footer-bottom .socila li span {
     display: none;
   }
+}
+
+.news{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    position: relative;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .news{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .news{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+/* News Title */
+.news-title {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0px 300px;
+    position: relative;
+    z-index: 5;
+    position: relative;
+}
+
+.news-title h2 {
+    font-size: 30px;
+    line-height: 35px;
+    text-transform: capitalize;
+    position: relative;
+    font-weight: 800;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.news-title h2::before {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    content: "";
+    background-color: #0167F3;
+    height: 2px;
+    width: 50px;
+    margin-left: -25px;
+    border-radius: 2px;
+}
+
+.news-title p {
+    font-size: 14px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .news-title {
+        padding: 0px 250px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .news-title {
+        padding: 0px 20px;
+        margin-bottom: 30px;
+    }
+
+    .news-title h3 {
+        font-size: 14px;
+    }
+
+    .news-title h2 {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 20px;
+    }
+
+    .news-title p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .news-title {
+        padding: 0px 10px;
+        margin-bottom: 25px;
+    }
+
+    .news-title h3 {
+        font-size: 14px;
+    }
+
+    .news-title h2 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 18px;
+    }
+
+    .news-title p {
+        font-size: 14px;
+    }
+}
+
+.news-title.align-right {
+    padding: 0;
+    padding-left: 600px;
+}
+
+.news-title.align-right h2:before {
+    display: none;
+}
+
+.news-title.align-right h2:after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 50px;
+    background: #0167F3;
+    content: "";
+}
+
+.news-title.align-left {
+    padding: 0;
+    padding-right: 600px;
+}
+
+.news-title.align-left h2:before {
+    left: 0;
+    margin-left: 0;
 }

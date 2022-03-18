@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Newse;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -13,7 +14,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        //dd(Newse::where('posted_at','<=','now()')->toSql());
+        return view('news.index',['news'=>Newse::latest()->paginate(10)]);
     }
 
     /**
@@ -43,9 +45,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        return view('news.show',['news'=>Newse::where('id',$request->id)->get()]);
     }
 
     /**

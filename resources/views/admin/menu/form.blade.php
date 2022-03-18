@@ -13,14 +13,29 @@
 <label for="">Наименование</label>
 <input type="text" class="form-control" name="title" placeholder="Заголовок категории" value="{{$menu->menu_name ?? ""}}" required>
 
-<label for="">Slug</label>
-<input class="form-control" type="text" name="slug" placeholder="Автоматическая генерация" value="{{""}}" readonly="">
+<label for="">Функція</label>
+<select class="form-control" name="menu_page">
+    <option value="0">-- Без функції --</option>
+    @include('admin.menu.function', ['function' => $function])
+</select>
+
+<label for="">Значення</label>
+<select class="form-control" name="menu_link">
+    <option value="0">-- Без функції --</option>
+    @include('admin.menu.link', ['link' => $link])
+</select>
+
+<label for="">Порядковий номер</label>
+<input type="text" class="form-control" name="menu_sort" placeholder="Заголовок категории" value="{{$menu->menu_sort ?? ""}}" required>
 
 <label for="">Родительская категория</label>
 <select class="form-control" name="parent_id">
     <option value="0">-- без родительской категории --</option>
     @include('admin.menu.menu', ['menues' => $menues])
 </select>
+
+<label for="">Маршрут</label>
+<input class="form-control" type="text" name="slug" placeholder="Автоматическая генерация" value="{{""}}" readonly="">
 
 <hr />
 

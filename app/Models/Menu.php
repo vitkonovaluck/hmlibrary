@@ -23,3 +23,5 @@ class Menu extends Model
         return $this->hasMany(self::class, 'menu_main');
     }
 }
+
+

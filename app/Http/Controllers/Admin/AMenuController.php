@@ -18,6 +18,7 @@ class AMenuController extends Controller
         return view('admin.menu.index',[
             'title_page' => 'Меню сайта',
             'menu' => Menu::with('children')->where('menu_main', '0')->orderBy('menu_sort')->get(),
+            'delimiter'  => ''
         ]);
 
     }
@@ -34,6 +35,8 @@ class AMenuController extends Controller
             'title_page' => 'Створення пункту меню',
             'menu' => [],
             'menues' => Menu::with('children')->where('menu_main', '0')->orderBy('menu_sort')->get(),
+            'function' => [],
+            'link' => [],
             'delimiter'  => ''
         ]);
     }
@@ -74,6 +77,8 @@ class AMenuController extends Controller
             'title_page' => 'Редагування пункту меню',
             'menu' => $menu,
             'menues' => Menu::with('children')->where('menu_main', '0')->orderBy('menu_sort')->get(),
+            'function' => [],
+            'link' => [],
             'delimiter'=>''
         ]);
 

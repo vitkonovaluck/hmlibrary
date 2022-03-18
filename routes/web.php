@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\StaticController;
+
 use App\Http\Controllers\Admin\AIndexController;
 use App\Http\Controllers\Admin\ANewsController;
 use App\Http\Controllers\Admin\AMenuController;
@@ -40,7 +43,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/show', [NewsController::class, 'show'])->name('news.show');
+Route::get('/static', [StaticController::class, 'show'])->name('static.index');
+
 
 Auth::routes();
 
