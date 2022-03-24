@@ -39,6 +39,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/menu/store',[AMenuController::class,'store'])->name('admin.menu.store');
     Route::get('/menu/update',[AMenuController::class,'store'])->name('admin.menu.update');
 
+
+
+    ////select routes//////////////////////
+    Route::get('/select/virtual/index',[AMenuController::class,'index'])->name('admin.menu.index');
+
 });
 
 

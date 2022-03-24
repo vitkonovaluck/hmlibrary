@@ -14,14 +14,14 @@
 <input type="text" class="form-control" name="title" placeholder="Заголовок категории" value="{{$menu->menu_name ?? ""}}" required>
 
 <label for="">Функція</label>
-<select class="form-control" name="menu_page">
-    <option value="0">-- Без функції --</option>
+<select class="form-control" name="menu_page" id="menu_page" onchange="javascript:reloadLink(this);">
+    <option value="">-- Без функції --</option>
     @include('admin.menu.function', ['function' => $function])
 </select>
 
 <label for="">Значення</label>
-<select class="form-control" name="menu_link">
-    <option value="0">-- Без функції --</option>
+<select class="form-control" name="menu_link" id="menu_link">
+    <option value="">-- Без значення --</option>
     @include('admin.menu.link', ['link' => $link])
 </select>
 

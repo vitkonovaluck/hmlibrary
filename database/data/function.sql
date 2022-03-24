@@ -1,0 +1,10 @@
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Головна', 'index', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'План заходів', 'plan.index', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Новини', 'news.index', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Новина', 'news.show', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Статистична сторінки', 'static.index', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Статистична сторінка', 'static.show', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Віртуальні виставки', 'virtual.index', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Віртуальна виставка', 'virtual.show', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Галереї світлин', 'galery.index', '', '2022-03-23 06:08:29', NULL);
+INSERT INTO `model_functions` (`id`, `name`, `routes`, `sub_function`, `created_at`, `updated_at`) VALUES (NULL, 'Галерея світлин', 'galery.show', '', '2022-03-23 06:08:29', NULL);

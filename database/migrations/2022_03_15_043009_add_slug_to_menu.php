@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->string('slug')->unique()->after('published');
+         //   $table->string('slug')->unique()->after('published');
         });
     }
 

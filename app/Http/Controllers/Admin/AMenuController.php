@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ModelFunction;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 
@@ -30,12 +31,11 @@ class AMenuController extends Controller
      */
     public function create()
     {
-
         return view('admin.menu.create', [
             'title_page' => 'Створення пункту меню',
             'menu' => [],
             'menues' => Menu::with('children')->where('menu_main', '0')->orderBy('menu_sort')->get(),
-            'function' => [],
+            'function' => ModelFunction::orderBy('name')->get(),
             'link' => [],
             'delimiter'  => ''
         ]);
