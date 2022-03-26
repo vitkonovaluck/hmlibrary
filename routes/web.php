@@ -9,6 +9,10 @@ use App\Http\Controllers\StaticController;
 use App\Http\Controllers\Admin\AIndexController;
 use App\Http\Controllers\Admin\ANewsController;
 use App\Http\Controllers\Admin\AMenuController;
+use App\Http\Controllers\Admin\AGaleryController;
+use App\Http\Controllers\Admin\AVirtualController;
+use App\Http\Controllers\Admin\AStaticController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +29,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/',[AIndexController::class,'index'])->name('admin.index');
     Route::get('/news',[ANewsController::class,'index'])->name('admin.news.index');
     Route::get('/news/create',[ANewsController::class,'create'])->name('admin.news.create');
-    Route::get('/news/edit/{type}',[ANewsController::class,'edit'])->name('admin.news.edit');
     Route::get('/news/edit',[ANewsController::class,'edit'])->name('admin.news.edit');
-    Route::get('/news/store',[ANewsController::class,'store'])->name('admin.news.store');
     Route::post('/news/store',[ANewsController::class,'store'])->name('admin.news.store');
     Route::post('/news/update',[ANewsController::class,'update'])->name('admin.news.update');
     Route::get('/news/search',[ANewsController::class,'search'])->name('admin.news.search');
@@ -36,13 +38,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/menu/create',[AMenuController::class,'create'])->name('admin.menu.create');
     Route::get('/menu/search',[AMenuController::class,'search'])->name('admin.menu.search');
     Route::get('/menu/edit',[AMenuController::class,'edit'])->name('admin.menu.edit');
-    Route::get('/menu/store',[AMenuController::class,'store'])->name('admin.menu.store');
-    Route::get('/menu/update',[AMenuController::class,'store'])->name('admin.menu.update');
+    Route::post('/menu/store',[AMenuController::class,'store'])->name('admin.menu.store');
+    Route::post('/menu/update',[AMenuController::class,'update'])->name('admin.menu.update');
+
 
 
 
     ////select routes//////////////////////
-    Route::get('/select/virtual/index',[AMenuController::class,'index'])->name('admin.menu.index');
+    Route::get('/select/virtual/index',[AMenuController::class,'index']);
+    Route::get('/select/galery/show',[AGaleryController::class,'showselect']);
+    Route::get('/select/galery/index',[AGaleryController::class,'indexselect']);
+    Route::get('/select/static/show',[AStaticController::class,'showselect']);
+    Route::get('/select/static/index',[AStaticController::class,'indexselect']);
+    Route::get('/select/news/show',[ANewsController::class,'showselect']);
+    Route::get('/select/news/index',[ANewsController::class,'indexselect']);
 
 });
 

@@ -1,48 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.9.5deb2
--- https://www.phpmyadmin.net/
---
--- Хост: localhost:3306
--- Время создания: Мар 09 2022 г., 15:34
--- Версия сервера: 10.3.34-MariaDB-0ubuntu0.20.04.1
--- Версия PHP: 7.4.3
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- База данных: `hmlibrar_library`
---
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `main_page`
---
-
-CREATE TABLE `main_page` (
-  `mp_id` int(11) NOT NULL,
-  `mp_date1` date NOT NULL,
-  `mp_date2` date NOT NULL,
-  `mp_text` text NOT NULL,
-  `mp_name` varchar(60) NOT NULL,
-  `mp_frame1` text NOT NULL,
-  `mp_frame2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `main_page`
---
-
-INSERT INTO `main_pages` (`id`, `mp_date1`, `mp_date2`, `mp_text`, `mp_name`, `mp_frame1`, `mp_frame2`) VALUES
+INSERT INTO `main_pages` (`id`, `date1`, `date2`, `text`, `name`, `frame1`, `frame2`) VALUES
 (1, '2018-01-20', '2018-01-21', '&lt;h1&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;Віртуальна подорож бібліотекою&lt;/span&gt;&lt;/h1&gt;\r\n&lt;h2&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;Фойє&lt;/span&gt;&lt;/h2&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h2&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;Читальний зал&lt;/span&gt;&lt;/h2&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h2&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;Абонемент, Інтернет-центр&lt;/span&gt;&lt;/h2&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h2&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;Абонемент для юнацтва&lt;/span&gt;&lt;/h2&gt;', 'Віртуальна подорож', '', ''),
 (8, '2022-08-22', '2022-08-24', '&lt;h2 style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;../tinymce/upload-files/main_page/independ_day.jpg&quot; alt=&quot;&quot; width=&quot;512&quot; height=&quot;384&quot; /&gt;&lt;/h2&gt;', 'З днем незалежності', '', ''),
 (9, '2022-09-25', '2022-09-30', '&lt;h1 style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;../tinymce/upload-files/main_page/unnamed_1.jpg&quot; alt=&quot;&quot; width=&quot;512&quot; height=&quot;355&quot; /&gt;&lt;/h1&gt;\r\n&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;../tinymce/upload-files/main_page/unnamed.jpg&quot; alt=&quot;&quot; width=&quot;512&quot; height=&quot;378&quot; /&gt;&lt;/p&gt;', 'З днем бібліотекаря', '', ''),
@@ -81,28 +37,3 @@ INSERT INTO `main_pages` (`id`, `mp_date1`, `mp_date2`, `mp_text`, `mp_name`, `m
 (36, '0000-00-00', '0000-00-00', '&lt;p&gt;&lt;img src=&quot;../tinymce/upload-files/news/20210709/89.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;338&quot; /&gt;&lt;/p&gt;', '', '', ''),
 (37, '0000-00-00', '0000-00-00', '&lt;p&gt;&lt;img src=&quot;../tinymce/upload-files/news/20210709/89.jpg&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;338&quot; /&gt;&lt;/p&gt;', '', '', ''),
 (38, '2021-12-17', '2021-12-19', '&lt;p&gt;&lt;img src=&quot;../tinymce/upload-files/news/20210709/Main_Banner.jpg&quot; alt=&quot;&quot; width=&quot;650&quot; height=&quot;650&quot; /&gt;&lt;/p&gt;', '', '', '');
-
---
--- Индексы сохранённых таблиц
---
-
---
--- Индексы таблицы `main_page`
---
-ALTER TABLE `main_page`
-  ADD PRIMARY KEY (`mp_id`);
-
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `main_page`
---
-ALTER TABLE `main_page`
-  MODIFY `mp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

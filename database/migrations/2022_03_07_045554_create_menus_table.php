@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->integer('menu_main');
-            $table->string('menu_name');
-            $table->string('menu_page');
-            $table->string('menu_url');
-            $table->string('menu_class');
-            $table->integer('menu_sort');
-            $table->integer('menu_link');
+            $table->integer('parent_id');
+            $table->string('name');
+            $table->string('page')->nullable();
+            $table->string('url')->nullable();
+            $table->string('class')->nullable();
+            $table->integer('sort')->nullable()->default(0);
+            $table->integer('link')->nullable();
+            $table->tinyInteger('published')->nullable()->default(0);
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

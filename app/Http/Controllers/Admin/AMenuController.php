@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ModelFunction;
 use App\Models\Menu;
+use Illuminate\Http\RedirectResponse;
+use App\Models\StaticPage;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AMenuController extends Controller
 {
@@ -18,7 +21,7 @@ class AMenuController extends Controller
     {
         return view('admin.menu.index',[
             'title_page' => 'Меню сайта',
-            'menu' => Menu::with('children')->where('menu_main', '0')->orderBy('menu_sort')->get(),
+            'menu' => Menu::with('children')->where('parent_id', '0')->orderBy('menu_sort')->get(),
             'delimiter'  => ''
         ]);
 
@@ -34,7 +37,7 @@ class AMenuController extends Controller
         return view('admin.menu.create', [
             'title_page' => 'Створення пункту меню',
             'menu' => [],
-            'menues' => Menu::with('children')->where('menu_main', '0')->orderBy('menu_sort')->get(),
+            'menues' => Menu::with('children')->where('parent_id', '0')->orderBy('menu_sort')->get(),
             'function' => ModelFunction::orderBy('name')->get(),
             'link' => [],
             'delimiter'  => ''
@@ -49,7 +52,8 @@ class AMenuController extends Controller
      */
     public function store(Request $request)
     {
-        Menu:create($request->all());
+        //dd($request->all());
+        Menu::create($request->all());
         return redirect()->route('admin.menu.index');
     }
 
@@ -70,15 +74,35 @@ class AMenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function edit(Menu $menu)
+    public function edit(Request $request)
     {
-        //dd(Menu::with('children')->where('menu_main', '1')->orderBy('menu_sort')->toSql());
+        $menus = Menu::where('id',$request->id)->first();
+        //Вибираэмо значення для функціїї
+        switch ($menus->menu_page) {
+            case 'static.index':
+                $links = StaticPage::orderBy('page_name')->pluck('page_name','id');
+                break;
+            case 'static.show':
+                $links = StaticPage::orderBy('page_name')->pluck('page_name','id');
+                break;
+            case 'virtual.index':
+                break;
+            case 'virtual.show':
+                break;
+            case 'galery.index':
+                break;
+            case 'galery.show':
+
+                break;
+
+        }
+
         return view('admin.menu.edit', [
             'title_page' => 'Редагування пункту меню',
-            'menu' => $menu,
-            'menues' => Menu::with('children')->where('menu_main', '0')->orderBy('menu_sort')->get(),
-            'function' => [],
-            'link' => [],
+            'menu' => $menus,
+            'menues' => Menu::with('children')->where('parent_id', '0')->orderBy('menu_sort')->get(),
+            'function' => ModelFunction::orderBy('name')->get(),
+            'link' => $links,
             'delimiter'=>''
         ]);
 
@@ -91,9 +115,11 @@ class AMenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Menu $menu)
+    public function update(Request $request)
     {
-        //
+        Menu::find($request->id)->update($request->all());
+
+        return redirect()->route('admin.menu.index');
     }
 
     /**

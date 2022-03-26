@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('main_pages', function (Blueprint $table) {
             $table->id();
-            $table->date('mp_date1');
-            $table->date('mp_date2');
-            $table->string('mp_name');
-            $table->text('mp_text');
-            $table->string('mp_frame1');
-            $table->string('mp_frame2');
+            $table->date('date1');
+            $table->date('date2');
+            $table->string('name');
+            $table->text('text');
+            $table->string('frame1');
+            $table->string('frame2');
             $table->timestamps();
         });
     }

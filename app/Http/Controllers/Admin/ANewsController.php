@@ -21,6 +21,11 @@ class ANewsController extends Controller
         ]);
     }
 
+    public function indexselect()
+    {
+        return '';
+    }
+
     public function search(Request $request)
     {
         return view('admin.news.index', [
@@ -62,6 +67,11 @@ class ANewsController extends Controller
     public function show(Newse $newses)
     {
         //
+    }
+
+    public function showselect()
+    {
+        return '';
     }
 
     /**

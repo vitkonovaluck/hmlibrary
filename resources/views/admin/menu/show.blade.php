@@ -4,9 +4,9 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">Пункт меню</th>
-        <th scope="col">Публікувати</th>
+        <th scope="col">Показ.</th>
         <th scope="col">Функція</th>
-        <th scope="col">Параметр</th>
+        <th scope="col">Сортировка</th>
         <th scope="col">Дії</th>
     </tr>
     </thead>

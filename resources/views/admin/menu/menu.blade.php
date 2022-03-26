@@ -5,7 +5,7 @@
 
             @isset($menu->id)
 
-            @if ($menu->main_menu == $menu_list->id)
+            @if ($menu->parent_id == $menu_list->id)
             selected=""
             @endif
 

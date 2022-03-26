@@ -10,11 +10,11 @@
     @endif
 </select>
 
-<label for="">Наименование</label>
-<input type="text" class="form-control" name="title" placeholder="Заголовок категории" value="{{$menu->menu_name ?? ""}}" required>
+<label for="">Назва меню</label>
+<input type="text" class="form-control" name="menu_name" placeholder="Назва пункту меню" value="{{$menu->menu_name ?? ""}}" required>
 
 <label for="">Функція</label>
-<select class="form-control" name="menu_page" id="menu_page" onchange="javascript:reloadLink(this);">
+<select class="form-control" name="menu_page" id="menu_page" onchange="javascript:reloadLink(this);" onload="javascript:reloadLink(this);">
     <option value="">-- Без функції --</option>
     @include('admin.menu.function', ['function' => $function])
 </select>

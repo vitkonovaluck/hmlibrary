@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('static_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('page_name');
-            $table->string('page_title');
-            $table->text('page_text');
-            $table->string('page_frame');
-            $table->string('page_frame1');
+            $table->string('name');
+            $table->string('title');
+            $table->text('text');
+            $table->string('frame');
+            $table->string('frame1');
             $table->timestamps();
         });
     }
