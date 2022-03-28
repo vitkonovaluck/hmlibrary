@@ -1,24 +1,27 @@
-function reloadLink($val) {
+function reloadLink($val,$id) {
     var valID = $val.value;
 
-    console.log('/admin/select/'+valID.replace(".", "/"));
+     var urls='/admin/select/'+valID.replace(".", "/");
+         urls= urls +'?id='+$id;
+    console.log(urls);
     if(valID){
-        $('#menu_link').empty();
+        $('#link').empty();
         jQuery.ajax({
-            url:'/admin/select/'+valID.replace(".", "/"),
+            url:'/admin/select/'+valID.replace(".", "/")+'?id='+$id,
             type: "GET",
             dataType:"json",
             success:function (data) {
-                $('#menu_link').append('<option value="">-- Без значення --</option>');
+                console.log(data);
+                $('#link').append('<option value="">-- Без значення --</option>');
                 jQuery.each(data,function (key, value) {
-                    $('#menu_link').append('<option value="'+key+'">'+value+'</option>');
+                    $('#link').append('<option value="'+key+'">'+value+'</option>');
                 })
             }
 
         })
     }else{
-        $('#menu_link').empty();
-        $('#menu_link').append('<option value="">-- Без значення --</option>');
+        $('#link').empty();
+        $('#link').append('<option value="">-- Без значення --</option>');
     }
 
 }

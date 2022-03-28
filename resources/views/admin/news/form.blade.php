@@ -4,7 +4,7 @@
     <label for="">Назва</label>
 </div>
 <div class="col-9">
-    <input type="text" class="form-control" name="news_title" placeholder="Заголовок новини" value="{{$news->title}}" required>
+    <input type="text" class="form-control" name="title" placeholder="Заголовок новини" value="{{$news->title}}" required>
 </div>
 </div>
 
@@ -13,7 +13,7 @@
 <label for="">Автор</label>
 </div>
 <div class="col-9">
-    <input type="text" class="form-control" name="news_author" placeholder="Автор новини" value="" required>
+    <input type="text" class="form-control" name="author" placeholder="Автор новини" value="" required>
 </div>
 </div>
 
@@ -32,7 +32,7 @@
 
 <div class="row g-3 align-items-center">
 <label for="">Текст</label>
-<textarea class="form-control" name="news_text" rows="15" cols="90" id="editor"></textarea>
+<textarea class="form-control" name="text" rows="15" cols="90" id="editor"></textarea>
 </div>
 
 <div class="row g-3 align-items-center">
@@ -40,7 +40,7 @@
     <label for="">Фрейм "%frame%"</label>
 </div>
 <div class="col-9">
-    <input class="form-control" type="text" name="news_frame" placeholder="Для вставки данних з інтернету" value="" >
+    <input class="form-control" type="text" name="frame" placeholder="Для вставки данних з інтернету" value="" >
 </div>
 </div>
 
@@ -49,7 +49,7 @@
     <label for="">Фрейм "%frame%1"</label>
 </div>
 <div class="col-9">
-    <input type="text" class="form-control" name="news_frame1" placeholder="Для вставки данних з інтернету" value="" required>
+    <input type="text" class="form-control" name="frame1" placeholder="Для вставки данних з інтернету" value="" required>
 </div>
 </div>
 

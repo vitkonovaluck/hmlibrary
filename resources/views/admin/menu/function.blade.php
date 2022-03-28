@@ -4,7 +4,7 @@
 
             @isset($menu->id)
 
-            @if ($menu->menu_page == $function_list->routes)
+            @if ($menu->page == $function_list->routes)
             selected=""
             @endif
         @endisset

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ShopGrids - Bootstrap 5 eCommerce HTML Template.</title>
+    <title>КЗ "Бібліотека для дорослих" ХМР</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
@@ -142,7 +142,7 @@
             <div class="inner-content">
                 <div class="row">
                     <div align="center">Весь контент доступний за ліцензією Creative Commons Attribution 4.0 International License  <br>
-                        КЗ 'Бібліотека для дорослих' Хмільницької міської ради&nbsp;© hm-library.com.ua 2011 - 2022  <div><strong>E-mail:
+                        Комунальний заклад 'Бібліотека для дорослих' Хмільницької міської ради&nbsp;© hm-library.com.ua 2011 - 2022  <div><strong>E-mail:
                             </strong> Biblioteka-Hmilnuk@i.ua</div>	</div>
                 </div>
             </div>

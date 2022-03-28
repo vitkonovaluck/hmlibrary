@@ -30,7 +30,7 @@ class ANewsController extends Controller
     {
         return view('admin.news.index', [
             'title_page' => 'Новини',
-            'news' => Newse::where('news_title', 'LIKE', '%' . $request->search . '%')->orwhere('news_text', 'LIKE', '%' . $request->search . '%')->latest()->paginate(20)
+            'news' => Newse::where('title', 'LIKE', '%' . $request->search . '%')->orwhere('text', 'LIKE', '%' . $request->search . '%')->latest()->paginate(20)
         ]);
     }
         /**

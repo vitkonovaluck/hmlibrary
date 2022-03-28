@@ -12,7 +12,13 @@
                 </div>
             </div>
         <div class="col-12">
-
+        @forelse($news as $new)
+            <p><strong>{{$new->name}}</strong></p>
+            <p><small>{{topNews($new->text)}}...</small></p>
+                <p><small><a href="{{route('news.show',['id'=>$new->id])}}">Показати</a></small></p>
+        @empty
+            <h3>Новини відсутні</h3>
+        @endforelse
         </div>
     </div>
 </div>

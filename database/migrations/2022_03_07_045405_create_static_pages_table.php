@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('static_pages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('title');
-            $table->text('text');
-            $table->string('frame');
-            $table->string('frame1');
+            $table->string('title')->nullable();
+            $table->text('text')->nullable();
+            $table->string('frame')->nullable();
+            $table->string('frame1')->nullable();
             $table->timestamps();
         });
     }

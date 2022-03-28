@@ -40,7 +40,7 @@
                 <a class="collapse-item" href="{{route('admin.menu.index')}}"><i class="fa fa-bars" aria-hidden="true"></i> Меню</a>
                 <a class="collapse-item" href="cards.html"><i class="fas fa-home"></i> Головна сторінка</a>
                 <a class="collapse-item" href="cards.html"><i class="fas fa-file-lines"></i>План заходів</a>
-                <a class="collapse-item" href="cards.html"><i class="fa fa-file-text-o" aria-hidden="true"></i> Статистичні сторінки</a>
+                <a class="collapse-item" href="{{route('admin.static.index')}}"> Статистичні сторінки1</a>
             </div>
         </div>
     </li>

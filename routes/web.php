@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\StaticController;
+use App\Http\Controllers\PlanController;
+use App\Http\Controllers\VirtualController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ImageUploadController;
 
 use App\Http\Controllers\Admin\AIndexController;
 use App\Http\Controllers\Admin\ANewsController;
@@ -41,6 +45,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/menu/store',[AMenuController::class,'store'])->name('admin.menu.store');
     Route::post('/menu/update',[AMenuController::class,'update'])->name('admin.menu.update');
 
+    Route::get('/static',[AStaticController::class,'index'])->name('admin.static.index');
+    Route::get('/static/create',[AStaticController::class,'create'])->name('admin.static.create');
+    Route::get('/static/edit',[AStaticController::class,'edit'])->name('admin.static.edit');
+    Route::post('/static/store',[AStaticController::class,'store'])->name('admin.static.store');
+    Route::post('/static/update',[AStaticController::class,'update'])->name('admin.static.update');
+    Route::get('/static/search',[AStaticController::class,'search'])->name('admin.static.search');
 
 
 
@@ -51,16 +61,32 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/select/static/show',[AStaticController::class,'showselect']);
     Route::get('/select/static/index',[AStaticController::class,'indexselect']);
     Route::get('/select/news/show',[ANewsController::class,'showselect']);
+    Route::get('/select/menu/show',[AMenuController::class,'showselect']);
     Route::get('/select/news/index',[ANewsController::class,'indexselect']);
 
+    //UPLOAD IMAGE routes
+    Route::get('upload-image', [ImageUploadController::class, 'index' ]);
+    Route::post('upload-image', [ImageUploadController::class, 'store' ])->name('image.store');
 });
 
 
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/tag', [NewsController::class, 'index'])->name('news.tag');
 Route::get('/news/show', [NewsController::class, 'show'])->name('news.show');
-Route::get('/static', [StaticController::class, 'show'])->name('static.index');
+Route::get('/static', [StaticController::class, 'index'])->name('static.index');
+Route::get('/static/show', [StaticController::class, 'show'])->name('static.show');
+Route::get('/static/delete', [StaticController::class, 'update'])->name('index.php');
+Route::get('/static/delete', [StaticController::class, 'update'])->name('static.delete');
+Route::get('/plan', [PlanController::class, 'index'])->name('plan.index');
+Route::get('/virtual', [VirtualController::class, 'index'])->name('virtual.index');
+Route::get('/menu/show', [MenuController::class, 'show'])->name('menu.show');
+
+
+//UPLOAD IMAGE routes
+Route::get('upload-image', [ImageUploadController::class, 'index' ]);
+Route::post('upload-image', [ImageUploadController::class, 'store' ])->name('image.store');
 
 
 Auth::routes();

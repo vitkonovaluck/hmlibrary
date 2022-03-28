@@ -11,4 +11,8 @@ class StaticPage extends Model
 
     protected $table = 'static_pages';
     protected $guarded = false;
+
+    protected $fillable = [ 'name', 'text', 'frame', 'frame1', 'created_by', 'modified_by'];
+
+
 }

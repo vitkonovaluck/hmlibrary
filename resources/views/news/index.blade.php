@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="news-title"><h2>{{$new->news_title}}</h2></div>
+                    <div class="news-title"><h2>{{$new->name}}</h2></div>
                 </div>
             </div>
             <div class="row">
@@ -32,18 +32,18 @@
                     Публікація від: {{$new->posted_at}}
                 </div>
                 <div class="col-6">
-                   Автор: {{$new->news_author}}
+                   Автор: {{$new->author}}
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    {!! smallNews($new->news_text) !!}
+                    {!! smallNews($new->text) !!}
                         .....<a href="{{route('news.show',['id'=>$new->id])}}">Показати</a>
                 </div>
             </div>
         </div>
     </news>
-
+    <hr>
 @endforeach
 
 

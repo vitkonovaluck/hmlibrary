@@ -16,7 +16,7 @@
         @endisset
 
     >
-        {!! $delimiter ?? "" !!}{{$menu_list->menu_name ?? ""}}
+        {!! $delimiter ?? "" !!}{{$menu_list->name ?? ""}}
     </option>
 
     @if (count($menu_list->children) > 0)

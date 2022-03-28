@@ -12,15 +12,19 @@ class Menu extends Model
 
     protected $table = 'menus';
     protected $guarded = false;
-    protected $fillable = ['parent_id', 'menu_name', 'menu_page', 'published', 'created_by', 'modified_by','slug'];
+    protected $fillable = ['parent_id', 'name', 'page', 'link', 'sort', 'published', 'created_by', 'modified_by','slug','image'];
 
     public function setSlugAttribute($value) {
-        $this->attributes['slug'] = Str::slug( mb_substr($this->menu_name, 0, 40), '-');
+        $this->attributes['slug'] = Str::slug(mb_substr($this->name, 0, 40), '-');
     }
 
     // Get children category
     public function children() {
         return $this->hasMany(self::class, 'parent_id');
+    }
+
+    public function parrent() {
+        return $this->belongsTo(self::class, 'parent_id','id');
     }
 }
 

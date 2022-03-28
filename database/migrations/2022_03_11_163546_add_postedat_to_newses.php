@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('newses', function (Blueprint $table) {
-            $table->timestamp('posted_at')->after('news_title');
+            $table->timestamp('posted_at')->after('name');
         });
     }
 

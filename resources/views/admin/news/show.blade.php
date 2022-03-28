@@ -14,8 +14,8 @@
     @forelse($news as $new)
     <tr>
         <th scope="row">{{$loop->index+1}}</th>
-        <td>{{$new->news_title}}</td>
-        <td>{{$new->news_author}}</td>
+        <td>{{$new->name}}</td>
+        <td>{{$new->author}}</td>
         <td>{{$new->posted_at}}</td>
         <td></td>
         <td>

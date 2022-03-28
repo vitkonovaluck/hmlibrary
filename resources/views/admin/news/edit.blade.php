@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+ы@extends('admin.layouts.app')
 
 @section('content')
 
@@ -7,7 +7,7 @@
 
         @include('admin.news.form')
 
-    </form>>
+    </form>
 
 
 @endsection

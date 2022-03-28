@@ -15,10 +15,30 @@ class SqlFileSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $path =  base_path().'/database/data/function.sql';
+  /*        $path =  base_path().'/database/data/function.sql';
 
         $sql = file_get_contents($path);
         DB::unprepared($sql);
+
+        $path =  base_path().'/database/data/menus.sql';
+
+        $sql = file_get_contents($path);
+        DB::unprepared($sql);
+
+        $path =  base_path().'/database/data/main_page.sql';
+
+        $sql = file_get_contents($path);
+        DB::unprepared($sql);
+*/
+        $path =  base_path().'/database/data/newses.sql';
+
+        $sql = file_get_contents($path);
+        DB::unprepared($sql);
+
+        $path =  base_path().'/database/data/static_page.sql';
+
+        $sql = file_get_contents($path);
+        DB::unprepared($sql);
+
     }
 }

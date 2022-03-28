@@ -18,8 +18,8 @@ function humanize_date(Carbon $date, string $format = 'd F Y, H:i'): string
     return $date->format($format);
 }
 
-function smallNews($value): string{
-
+function tagToChar($value): string
+{
     $value = str_replace('&nbsp; &nbsp;',' ',$value);
     $value = str_replace('&nbsp;&nbsp;',' ',$value);
     $value = str_replace('&nbsp;&nbsp; ',' ',$value);
@@ -29,8 +29,37 @@ function smallNews($value): string{
     $value = str_replace('&laquo;','"',$value);
     $value = str_replace('&raquo;','"',$value);
 
+    return $value;
+}
 
-    $value = strip_tags(trim(htmlspecialchars_decode(mb_substr($value,0,250))));
+function smallNews($value): string{
+
+
+    $value = strip_tags(trim(htmlspecialchars_decode(mb_substr(tagToChar($value),0,250))));
+
+    return $value;
+
+}
+
+function linkRev($nav):string{
+    if(strlen($nav->link)>0){
+        $di=['id'=>$nav->link];
+    }else{
+        $di = [];
+    }
+
+    if(strlen($nav->page)<2){
+        $link = 'index';
+    }else{
+        $link = route($nav->page,$di);
+    }
+    return $link;
+}
+
+function topNews($value): string{
+
+
+    $value = strip_tags(trim(htmlspecialchars_decode(mb_substr(tagToChar($value),0,100))));
 
     return $value;
 
@@ -38,20 +67,16 @@ function smallNews($value): string{
 
 function allNews($value): string{
 
-      $value = str_replace('&nbsp; &nbsp;',' ',$value);
-      $value = str_replace('&nbsp;&nbsp;',' ',$value);
-      $value = str_replace('&nbsp;&nbsp; ',' ',$value);
-      $value = str_replace(' &nbsp;&nbsp;',' ',$value);
-      $value = str_replace('&nbsp;',' ',$value);
-      $value = str_replace('&rsquo;','`',$value);
-      $value = str_replace('&laquo;','"',$value);
-      $value = str_replace('&raquo;','"',$value);
+    $value = htmlspecialchars_decode(tagToChar($value));
 
-
-    //$value = strip_tags(trim(htmlspecialchars_decode($value)));
-    $value = htmlspecialchars_decode($value);
-    $value = $value ;
 
     return $value;
 
 }
+
+function LenStr($value): int{
+
+    return strlen($value);
+
+}
+
