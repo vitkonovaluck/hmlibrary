@@ -36,9 +36,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+                    @php
+                        if (preg_match_all('/<img(?:\\s[^<>]*?)?\\bsrc\\s*=\\s*(?|"([^"]*)"|\'([^\']*)\'|([^<>\'"\\s]*))[^<>]*>/i', $new->text, $m))
+                         if (count($m[1])>0){
+                            $src_img=$m[1][0];
+                         }else{
+                            $src_img="/img/news_icon.png";
+                         }
+
+                    @endphp
+                    <img src="{{$src_img}}">
+                </div>
+                <div class="col-12 col-sm-6 col-md-8 col-lg-9">
                     {!! smallNews($new->text) !!}
-                        .....<a href="{{route('news.show',['id'=>$new->id])}}">Показати</a>
+                    .....<a href="{{route('news.show',['id'=>$new->id])}}">Показати</a>
                 </div>
             </div>
         </div>
@@ -46,5 +59,6 @@
     <hr>
 @endforeach
 
+{{ $news->links('vendor.pagination.bootstrap-5') }}
 
 @endsection
