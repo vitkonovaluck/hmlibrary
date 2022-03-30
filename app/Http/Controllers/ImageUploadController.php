@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Models\Image;
+use Image; //Intervention Image
+use Illuminate\Support\Facades\Storage; //Laravel Filesystem
+
 
 class ImageUploadController extends Controller
 {
@@ -14,7 +16,7 @@ class ImageUploadController extends Controller
      */
     public function index()
     {
-        return view('imageUpload');
+        return view('imageUpload1');
     }
 
     /**
@@ -24,16 +26,34 @@ class ImageUploadController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        if ($request->hasFile('profile_image')) {
 
-        $imageName = time().'.'.$request->image->extension();
+            foreach($request->file('profile_image') as $file){
 
-        $request->image->move(public_path('images'), $imageName);
+                //get filename with extension
+                $filenamewithextension = $file->getClientOriginalName();
 
-       // Image::create(['name' => $imageName]);
+                //get filename without extension
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
 
-        return response()->json($imageName);
+                //get file extension
+                $extension = $file->getClientOriginalExtension();
+
+                //filename to store
+                $filenametostore = $filename.'_'.uniqid().'.'.$extension;
+
+                Storage::put('public/profile_images/'. $filenametostore, fopen($file, 'r+'));
+                Storage::put('public/profile_images/thumbnail/'. $filenametostore, fopen($file, 'r+'));
+
+                //Resize image here
+                $thumbnailpath = public_path('storage/profile_images/thumbnail/'.$filenametostore);
+                $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save($thumbnailpath);
+            }
+
+            return redirect( ('upload-image'))->with('success', "Image uploaded successfully.");
+        }
     }
 }

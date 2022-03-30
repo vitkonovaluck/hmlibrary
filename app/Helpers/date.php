@@ -35,7 +35,7 @@ function tagToChar($value): string
 function smallNews($value): string{
 
 
-    //$value = strip_tags(trim(htmlspecialchars_decode(mb_substr(tagToChar($value),0,250))));
+    $value = mb_substr(strip_tags(trim(htmlspecialchars_decode(tagToChar($value)))),0,350);
 
     return $value;
 

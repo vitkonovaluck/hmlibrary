@@ -138,9 +138,13 @@ class AMenuController extends Controller
     public function update(Request $request)
     {
 
+        /*if( $file = $request->file('imagefile') ) {
+            $path = 'products/images';
+            $url = $this->file($file,$path,134,193);
+        }
 
-        //dd($request);
-
+        */
+        $img='';
         if(strlen($request->imagefile)>4){
              $request->validate(['imagefile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', ]);
 
@@ -153,8 +157,6 @@ class AMenuController extends Controller
         }else{
             if(strlen($request->image)>4){
                 $img=$request->image;
-            }else{
-                $img='';
             }
         }
 
@@ -168,7 +170,7 @@ class AMenuController extends Controller
             'link' => $request->link,
             'sort' => $request->sort,
             'published' => $request->published,
-            'image' =>$img,
+            'image' =>$url,
         ]);
 
 
