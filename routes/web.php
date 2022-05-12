@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+
+use
+    Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NewsController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\ImageUploadController;
 
 use App\Http\Controllers\Admin\AIndexController;
 use App\Http\Controllers\Admin\ANewsController;
+use App\Http\Controllers\Admin\APlanController;
 use App\Http\Controllers\Admin\AMenuController;
 use App\Http\Controllers\Admin\AGaleryController;
 use App\Http\Controllers\Admin\AVirtualController;
@@ -52,6 +55,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/static/update',[AStaticController::class,'update'])->name('admin.static.update');
     Route::get('/static/search',[AStaticController::class,'search'])->name('admin.static.search');
 
+    Route::get('/plan',[APlanController::class,'index'])->name('admin.plan.index');
+    Route::get('/plan/create',[APlanController::class,'create'])->name('admin.plan.create');
+    Route::get('/plan/edit',[APlanController::class,'edit'])->name('admin.plan.edit');
+    Route::post('/plan/store',[APlanController::class,'store'])->name('admin.plan.store');
+    Route::post('/plan/update',[APlanController::class,'update'])->name('admin.plan.update');
+  //  Route::get('/plan/search',[APlanController::class,'search'])->name('admin.plan.search');
+
 
 
     ////select routes//////////////////////
@@ -75,6 +85,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/tag', [NewsController::class, 'index'])->name('news.tag');
 Route::get('/news/show', [NewsController::class, 'show'])->name('news.show');
+Route::get('/static', [StaticController::class, 'index'])->name('static');
 Route::get('/static', [StaticController::class, 'index'])->name('static.index');
 Route::get('/static/show', [StaticController::class, 'show'])->name('static.show');
 Route::get('/static/delete', [StaticController::class, 'update'])->name('index.php');

@@ -13,6 +13,51 @@ function carbon(string $parseString = '', string $tz = null): Carbon
 /**
  * Return a formatted Carbon date.
  */
+function humanize_period($date): string
+{
+    $prd = explode("-", $date);
+    switch ($prd[1]) {
+        case '01':
+            return 'січень '.$prd[0];
+            break;
+        case '02':
+            return 'лютий '.$prd[0];
+            break;
+        case '03':
+            return 'березень '.$prd[0];
+            break;
+        case '04':
+            return 'квітень '.$prd[0];
+            break;
+        case '05':
+            return 'травень '.$prd[0];
+            break;
+        case '06':
+            return 'червень '.$prd[0];
+            break;
+        case '07':
+            return 'липень '.$prd[0];
+            break;
+        case '08':
+            return 'серпень '.$prd[0];
+            break;
+        case '09':
+            return 'вересень '.$prd[0];
+            break;
+        case '10':
+            return 'жовтень '.$prd[0];
+            break;
+        case '11':
+            return 'листопад '.$prd[0];
+            break;
+        case '12':
+            return 'грудень '.$prd[0];
+            break;
+
+    }
+    return $prd[1];
+}
+
 function humanize_date(Carbon $date, string $format = 'd F Y, H:i'): string
 {
     return $date->format($format);

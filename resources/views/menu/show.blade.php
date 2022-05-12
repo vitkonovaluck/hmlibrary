@@ -1,12 +1,12 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
-    <div class="breadcrumbs">
+    <div lass="breadcrumbs">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title">{{$menu->name}}</h1>
+                        <h1 class="page-title">{{$menu->name ?? ""}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
@@ -17,7 +17,7 @@
                                 <li><a href="{{linkRev($menu->parrent)}}">{{$menu->parrent->name}}</a></li>
                             @endif
                         @endif
-                        <li> {{$menu->name}}</li>
+                        <li> {{$menu->name ?? ""}}</li>
                     </ul>
                 </div>
             </div>
@@ -28,6 +28,7 @@
     <section class="trending-product section" style="margin-top: 12px;">
         <div class="container">
             <div class="row">
+
                 @foreach($menu->children as $menus)
                 <div class="col-lg-3 col-md-6 col-12">
                     <!-- Start Single Product -->

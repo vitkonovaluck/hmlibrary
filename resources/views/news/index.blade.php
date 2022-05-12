@@ -47,7 +47,7 @@
                          }
 
                     @endphp
-                    <img src="{{$src_img}}">
+                    <img src="{{$src_img ?? "/img/news_icon.png"}}">
                 </div>
                 <div class="col-12 col-sm-6 col-md-8 col-lg-9">
                     {!! smallNews($new->text) !!}
@@ -59,6 +59,6 @@
     <hr>
 @endforeach
 
-{{ $news->links('vendor.pagination.bootstrap-5') }}
+ {{$news->links()}}
 
 @endsection

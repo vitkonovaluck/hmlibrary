@@ -45,7 +45,7 @@ class MyProvider extends ServiceProvider
 
     public function topNews(){
         View::composer('rigth_bar.news',function ($view){
-            $view->with('news',\App\Models\Newse::orderBy('created_at','desc')->paginate(5));
+            $view->with('news',\App\Models\Newse::orderBy('posted_at','desc')->limit(5)->get());
         });
     }
 }

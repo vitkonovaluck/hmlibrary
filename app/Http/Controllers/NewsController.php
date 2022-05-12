@@ -14,8 +14,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //dd(Newse::where('posted_at','<=','now()')->toSql());
-        return view('news.index',['news'=>Newse::latest()->paginate(10)]);
+        ////dd(Newse::where('posted_at','<',now())->orderBy('posted_at', 'desc')->toSql());
+        //return view('news.index',['news'=>Newse::latest()->paginate(10)]);
+        return view('news.index',['news'=>Newse::where('posted_at','<',now())->orderBy('posted_at', 'desc')->paginate(10)]);
     }
 
     /**

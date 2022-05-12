@@ -90,7 +90,7 @@
                     </div>
                     <!-- End Mega Category Menu -->
                     <!-- Start Navbar -->
-                    @include('menu.navbar');
+                    @include('menu.navbar')
                     <!-- End Navbar -->
                 </div>
             </div>

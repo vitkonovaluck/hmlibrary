@@ -74,7 +74,7 @@
                     <h6 class="collapse-header">Основні компоненти сайту</h6>
                     <a class="collapse-item" href="{{route('admin.menu.index')}}"><i class="fa fa-bars" aria-hidden="true"></i> Меню</a>
                     <a class="collapse-item" href="#"><i class="fas fa-home"></i> Головна сторінка</a>
-                    <a class="collapse-item" href="#"><i class="fas fa-file-lines"></i>План заходів</a>
+                    <a class="collapse-item" href="{{route('admin.plan.index')}}#"><i class="fas fa-file-lines"></i>План заходів</a>
                     <a class="collapse-item" href="{{route('admin.static.index')}}"><i class="fa fa-file-text-o" aria-hidden="true"></i> Статистичні сторінки</a>
                 </div>
             </div>

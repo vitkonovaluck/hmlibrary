@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.index')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -39,7 +39,7 @@
                 <h6 class="collapse-header">Основні компоненти сайту</h6>
                 <a class="collapse-item" href="{{route('admin.menu.index')}}"><i class="fa fa-bars" aria-hidden="true"></i> Меню</a>
                 <a class="collapse-item" href="cards.html"><i class="fas fa-home"></i> Головна сторінка</a>
-                <a class="collapse-item" href="cards.html"><i class="fas fa-file-lines"></i>План заходів</a>
+                <a class="collapse-item" href="{{route('admin.plan.index')}}"><i class="fas fa-file-lines"></i>План заходів</a>
                 <a class="collapse-item" href="{{route('admin.static.index')}}"> Статистичні сторінки1</a>
             </div>
         </div>

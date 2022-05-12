@@ -12,9 +12,15 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if(isset($request->id)) {
+            return view('static.show', [
+                'statics' => StaticPage::where('id', $request->id)->get()
+            ]);
+        }else{
+            return view('index');
+        }
 
     }
 
@@ -25,7 +31,7 @@ class StaticController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

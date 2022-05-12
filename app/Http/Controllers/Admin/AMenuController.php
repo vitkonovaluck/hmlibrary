@@ -170,7 +170,7 @@ class AMenuController extends Controller
             'link' => $request->link,
             'sort' => $request->sort,
             'published' => $request->published,
-            'image' =>$url,
+            'image' =>$img,
         ]);
 
 

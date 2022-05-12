@@ -1,4 +1,4 @@
-@foreach($menu as $men)
+    @foreach($menu as $men)
     <tr>
         <th scope="row">{{$loop->index+1}}</th>
         <td>{{$delimiter}} / <b><font color="blue"> {{$men->name}}</font></b></td>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Plan;
+
 
 class PlanController extends Controller
 {
@@ -14,7 +16,12 @@ class PlanController extends Controller
     public function index()
     {
         //
-        return view('menu.new');
+        $periods = date("Y-m");
+
+        return view('plans.index', [
+            'periods' => $periods,
+            'plan' => Plan::with('children')->where('date1', 'like', $periods.'%')->where('main', '=', '0')->orderBy('date1')->orderBy('id')->get(),
+        ]);
     }
 
     /**
