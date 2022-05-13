@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class APlanController extends Controller
@@ -12,9 +13,15 @@ class APlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $cur_period = $request->session()->get('cur_period',date("Y-m"));
+        return view('admin.plan.index', [
+            'title_page' => 'План заходів',
+            'cur_period' => $cur_period,
+            'periods' => [],
+            'plans' => Plan::with('children')->where('date1', 'like', $cur_period.'%')->where('main', '=', '0')->orderBy('date1')->orderBy('id')->get(),
+        ]);
     }
 
 

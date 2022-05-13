@@ -21,7 +21,7 @@
 </div>
 
 <table class="table table-borderless">
-@include('plans.show_table',['plan'=>$plan])
+@include('plans.show_table',['plan'=>$plan,'periods'=>$periods])
 </table>
 @endsection
 

@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/plan/edit',[APlanController::class,'edit'])->name('admin.plan.edit');
     Route::post('/plan/store',[APlanController::class,'store'])->name('admin.plan.store');
     Route::post('/plan/update',[APlanController::class,'update'])->name('admin.plan.update');
-  //  Route::get('/plan/search',[APlanController::class,'search'])->name('admin.plan.search');
+    Route::get('/plan/destroy',[APlanController::class,'destroy'])->name('admin.plan.delete');
 
 
 
